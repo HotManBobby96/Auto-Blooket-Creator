@@ -3,11 +3,11 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const readline = require('readline');
 
-const email = "autoblooket@gmail.com"; // email and password to log in to websites
-const password = "Autoblooketpassword123!";
+const email = ""; // email and password to log in to websites
+const password = "";
 
-const awnserFilePath = "C:\\Users\\PCHS_BPA\\Desktop\\Auto-Blooket-Creator\\awnsers.txt";
-const questionFilePath = "C:\\Users\\PCHS_BPA\\Desktop\\Auto-Blooket-Creator\\questions.txt";
+const awnserFilePath = ""; // replace with your paths
+const questionFilePath = "";
 
 let currentLine = 1; // Start with the first line
 const numberOfQuestions = 10;
