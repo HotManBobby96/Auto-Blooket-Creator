@@ -2,15 +2,16 @@ const { log } = require('console');
 const puppeteer = require('puppeteer'); 
 const fs = require('fs');
 const readline = require('readline');
+const path = require('path')
 
-const email = ""; // email and password to log in to websites
-const password = "";
+const email = "autoblooket@gmail.com"; // email and password to log in to websites
+const password = "Autoblooketpassword123!";
 
-const awnserFilePath = ""; // replace with your paths
-const questionFilePath = "";
+const awnserFilePath = "C:\\Users\\Bryson Blakney\\Desktop\\organizer\\coding\\Auto-Blooket-Creator\\awnsers.txt"; // replace with your paths
+const questionFilePath = "C:\\Users\\Bryson Blakney\\Desktop\\organizer\\coding\\Auto-Blooket-Creator\\questions.txt";
 
 let currentLine = 1; // Start with the first line
-const numberOfQuestions = 10;
+const numberOfQuestions = 28; // CHANGE THIS SHIT MAKES TGE DAMN THING FUNCTION
 
 async function logIn(email, password, page) {
     await page.goto('https://id.blooket.com/login');  
@@ -89,9 +90,23 @@ async function sleep(ms) {
 
 
 (async () => {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ 
+        headless: false,
+        executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--user-data-dir='  + path.resolve('C:\\Users\\Bryson Blakney\\AppData\\Local\\Google\\Chrome\\User Data'),
+      '--profile-directory=Default'      
+    ],
+    defaultViewport: null
+    });
+    // startong
+    console.log("starting")
     const page = await browser.newPage();
+    console.log("page created")
 
+    console.log("calling functiongs")
     await logIn(email, password, page);
     await StartBlooketPage(page);
 
